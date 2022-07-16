@@ -1,43 +1,24 @@
 package com.modernunit.moderncalculator
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.modernunit.moderncalculator.ui.theme.ModernCalculatorTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import com.modernunit.moderncalculator.fragments.calculator.CalculatorFragment
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            ModernCalculatorTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        setContentView(R.layout.main_activity_layout)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        supportFragmentManager.commit {
+            replace<CalculatorFragment>(R.id.calculator_base_container)
+            setReorderingAllowed(true)
+            addToBackStack("CalculatorFragment") // name can be null
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ModernCalculatorTheme {
-        Greeting("Android")
-    }
 }
