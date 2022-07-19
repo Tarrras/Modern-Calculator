@@ -18,7 +18,6 @@ fun RowScope.KeyboardButton(
     modifier: Modifier = Modifier,
     symbol: Char,
     weight: Float = 1f,
-    aspectRatio: Float = 1f,
     textColor: Color = MaterialTheme.colors.secondary,
     backgroundColor: Color = MaterialTheme.colors.primary,
     onClicked: (Char) -> Unit
@@ -26,7 +25,7 @@ fun RowScope.KeyboardButton(
     Button(
         modifier = modifier
             .weight(weight)
-            .aspectRatio(aspectRatio),
+            .heightIn(max = 200.dp),
         onClick = { onClicked(symbol) },
         shape = RoundedCornerShape(30),
         colors = ButtonDefaults.buttonColors(
@@ -72,7 +71,6 @@ private fun KeyboardNumberButtonPreview() = ModernCalculatorTheme {
                     .fillMaxHeight()) {
                     KeyboardButton(
                         symbol = '0',
-                        aspectRatio = 2.4f,
                         onClicked = { }
                     )
                 }
@@ -91,5 +89,3 @@ private fun KeyboardNumberButtonPreview() = ModernCalculatorTheme {
         }
     }
 }
-
-const val LongButtonAspectRatio = 2.4f //todo wtf?
