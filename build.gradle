@@ -23,6 +23,7 @@ buildscript {
         viewPagerVersion = '1.0.0'
         workVersion = '2.5.0'
         hiltVersion = '2.42'
+        lifecycle_version = '2.5.0'
     }
 
     repositories {
@@ -66,7 +67,7 @@ subprojects {
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             // Treat all Kotlin warnings as errors
-            allWarningsAsErrors = true
+            allWarningsAsErrors = false
 
             freeCompilerArgs += '-opt-in=kotlin.RequiresOptIn'
 
