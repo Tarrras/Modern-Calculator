@@ -23,9 +23,14 @@ class CalculatorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = requireContext().composeView {
         val number by viewModel.number.collectAsState()
+        val wholeExpression by viewModel.wholeExpression.collectAsState()
 
         ModernCalculatorTheme {
-            CalculatorScreen(onSymbolClicked = viewModel::onNewSymbol, inputNumber = number)
+            CalculatorScreen(
+                onSymbolClicked = viewModel::onNewSymbol,
+                inputNumber = number,
+                wholeExpression = wholeExpression
+            )
         }
     }
 
