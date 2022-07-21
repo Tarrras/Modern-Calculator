@@ -25,7 +25,7 @@ fun RowScope.KeyboardButton(
     Button(
         modifier = modifier
             .weight(weight)
-            .heightIn(max = 200.dp),
+            .heightIn(min = 70.dp, max = 100.dp),
         onClick = { onClicked(symbol) },
         shape = RoundedCornerShape(30),
         colors = ButtonDefaults.buttonColors(
@@ -66,9 +66,11 @@ private fun KeyboardNumberButtonPreview() = ModernCalculatorTheme {
                     .height(intrinsicSize = IntrinsicSize.Min),
                 horizontalArrangement = Arrangement.spacedBy(24.dp)
             ) {
-                Row(modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight()) {
+                Row(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                ) {
                     KeyboardButton(
                         symbol = '0',
                         onClicked = { }

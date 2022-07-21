@@ -47,7 +47,7 @@ fun Keyboard(
             KeyboardButton(symbol = '9', onClicked = onSymbolClicked)
             KeyboardButton(
                 symbol = 'x',
-                onClicked = { },
+                onClicked = onSymbolClicked,
                 backgroundColor = ModernCalculatorTheme.colors.extendedOrange,
                 textColor = Color.White
             )
@@ -60,7 +60,7 @@ fun Keyboard(
             KeyboardButton(symbol = '6', onClicked = onSymbolClicked)
             KeyboardButton(
                 symbol = '-',
-                onClicked = { },
+                onClicked = onSymbolClicked,
                 backgroundColor = ModernCalculatorTheme.colors.extendedOrange,
                 textColor = Color.White
             )
@@ -73,7 +73,7 @@ fun Keyboard(
             KeyboardButton(symbol = '3', onClicked = onSymbolClicked)
             KeyboardButton(
                 symbol = '+',
-                onClicked = { },
+                onClicked = onSymbolClicked,
                 backgroundColor = ModernCalculatorTheme.colors.extendedOrange,
                 textColor = Color.White
             )

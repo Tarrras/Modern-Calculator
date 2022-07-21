@@ -17,3 +17,16 @@ fun InputNumber(modifier: Modifier = Modifier, inputNumber: String) {
         overflow = TextOverflow.Clip
     )
 }
+
+@Composable
+fun WholeExpression(modifier: Modifier = Modifier, wholeExpression: String) {
+    Text(
+        modifier = modifier,
+        text = wholeExpression,
+        fontSize = 18.sp,
+        color = MaterialTheme.colors.secondary.copy(alpha = 0.8f),
+        overflow = TextOverflow.Ellipsis,
+        maxLines = 1,
+        letterSpacing = 2.sp
+    )
+}
